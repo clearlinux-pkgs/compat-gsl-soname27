@@ -9,7 +9,7 @@
 #
 Name     : compat-gsl-soname27
 Version  : 2.7.1
-Release  : 35
+Release  : 36
 URL      : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source1  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz.sig
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1717513135
+export SOURCE_DATE_EPOCH=1717514809
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -136,7 +136,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1717513135
+export SOURCE_DATE_EPOCH=1717514809
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-gsl-soname27
 cp %{_builddir}/gsl-%{version}/COPYING %{buildroot}/usr/share/package-licenses/compat-gsl-soname27/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
@@ -153,6 +153,8 @@ popd
 GOAMD64=v2
 %make_install
 ## Remove excluded files
+rm -f %{buildroot}*/usr/lib64/libgslcblas.so.0
+rm -f %{buildroot}*/usr/lib64/libgslcblas.so.0.0.0
 rm -f %{buildroot}*/V3/usr/bin/gsl-histogram
 rm -f %{buildroot}*/V3/usr/bin/gsl-randist
 rm -f %{buildroot}*/V4/usr/bin/gsl-histogram
@@ -444,13 +446,9 @@ rm -f %{buildroot}*/usr/share/man/man3/gsl.3
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libgsl.so.27.0.0
-/V3/usr/lib64/libgslcblas.so.0.0.0
 /V4/usr/lib64/libgsl.so.27.0.0
-/V4/usr/lib64/libgslcblas.so.0.0.0
 /usr/lib64/libgsl.so.27
 /usr/lib64/libgsl.so.27.0.0
-/usr/lib64/libgslcblas.so.0
-/usr/lib64/libgslcblas.so.0.0.0
 
 %files license
 %defattr(0644,root,root,0755)
