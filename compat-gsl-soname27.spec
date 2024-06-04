@@ -9,7 +9,7 @@
 #
 Name     : compat-gsl-soname27
 Version  : 2.7.1
-Release  : 34
+Release  : 35
 URL      : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source1  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz.sig
