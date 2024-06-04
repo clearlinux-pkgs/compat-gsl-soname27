@@ -7,9 +7,9 @@
 #
 # Source0 file verified with key 0x245FB74BAE05B3E9 (alken@colorado.edu)
 #
-Name     : gsl
+Name     : compat-gsl-soname27
 Version  : 2.7.1
-Release  : 33
+Release  : 34
 URL      : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz
 Source1  : https://mirrors.kernel.org/gnu/gsl/gsl-2.7.1.tar.gz.sig
@@ -17,8 +17,8 @@ Source2  : 245FB74BAE05B3E9.pkey
 Summary  : GNU Scientific Library
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: gsl-lib = %{version}-%{release}
-Requires: gsl-license = %{version}-%{release}
+Requires: compat-gsl-soname27-lib = %{version}-%{release}
+Requires: compat-gsl-soname27-license = %{version}-%{release}
 BuildRequires : buildreq-configure
 BuildRequires : gnupg
 BuildRequires : sed
@@ -33,20 +33,20 @@ This is GSL, the GNU Scientific Library, a collection of numerical
 routines for scientific computing.
 
 %package lib
-Summary: lib components for the gsl package.
+Summary: lib components for the compat-gsl-soname27 package.
 Group: Libraries
-Requires: gsl-license = %{version}-%{release}
+Requires: compat-gsl-soname27-license = %{version}-%{release}
 
 %description lib
-lib components for the gsl package.
+lib components for the compat-gsl-soname27 package.
 
 
 %package license
-Summary: license components for the gsl package.
+Summary: license components for the compat-gsl-soname27 package.
 Group: Default
 
 %description license
-license components for the gsl package.
+license components for the compat-gsl-soname27 package.
 
 
 %prep
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1717512144
+export SOURCE_DATE_EPOCH=1717513135
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -136,11 +136,11 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1717512144
+export SOURCE_DATE_EPOCH=1717513135
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/gsl
-cp %{_builddir}/gsl-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gsl/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
-cp %{_builddir}/gsl-%{version}/doc/_static/gpl.txt %{buildroot}/usr/share/package-licenses/gsl/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
+mkdir -p %{buildroot}/usr/share/package-licenses/compat-gsl-soname27
+cp %{_builddir}/gsl-%{version}/COPYING %{buildroot}/usr/share/package-licenses/compat-gsl-soname27/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
+cp %{_builddir}/gsl-%{version}/doc/_static/gpl.txt %{buildroot}/usr/share/package-licenses/compat-gsl-soname27/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
 export GOAMD64=v2
 GOAMD64=v3
 pushd ../buildavx2/
@@ -454,4 +454,4 @@ rm -f %{buildroot}*/usr/share/man/man3/gsl.3
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gsl/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+/usr/share/package-licenses/compat-gsl-soname27/8624bcdae55baeef00cd11d5dfcfa60f68710a02
